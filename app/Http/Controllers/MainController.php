@@ -30,7 +30,7 @@ class MainController extends Controller
     	// 	'name'=>'muneer'
     	// ]);
 
-    	User::find(2)->delete();
+    	// User::find(2)->delete();
 
 
 
