@@ -38,4 +38,5 @@ class ClassController extends Controller
 
     	return redirect()->route('class_view');
     }
+    
 }

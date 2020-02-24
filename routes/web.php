@@ -31,4 +31,21 @@ Route::group(['prefix'=>'panel'],function(){
 	});
 
 
+	Route::group(['prefix'=>'section'],function(){
+	
+		Route::get('/add','SectionController@add')->name('section_add');
+		Route::post('/add','SectionController@add_do')->name('section_add_do');
+	
+
+		Route::get('/edit/{id}','SectionController@edit')->name('section_edit');
+		Route::post('/edit','SectionController@edit_do')->name('section_edit_do');
+
+		Route::get('/view','SectionController@view')->name('section_view');
+
+		Route::get('/delete/{id}','SectionController@delete')->name('section_delete');
+	});
+
+
+
+
 });
