@@ -8,6 +8,7 @@ use App\Section;
 class SectionController extends Controller
 {
     //
+    
     public function add(){
     	$classes = Classes::orderBy('name','asc')->get();
     	return view('panel.sections.add',compact('classes'));

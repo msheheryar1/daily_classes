@@ -12,9 +12,13 @@
 */
 
 Route::get('/','MainController@index');
+Route::get('/admin/login','CustomController@login')->name('login');
+Route::post('/admin/login','CustomController@login_do')->name('login_do');
+Route::post('/logout','CustomController@logout')->name('logout');
 
 
-Route::group(['prefix'=>'panel'],function(){
+
+Route::group(['prefix'=>'panel','middleware'=>'auth'],function(){
 
 	Route::get('/dashboard','PanelController@dashboard')->name('admin_dashboard');
 
@@ -45,7 +49,19 @@ Route::group(['prefix'=>'panel'],function(){
 		Route::get('/delete/{id}','SectionController@delete')->name('section_delete');
 	});
 
+	Route::group(['prefix'=>'students'],function(){
 
+		Route::get('admission','StudentController@add')->name('students_add');
+		Route::post('admission','StudentController@add_do')->name('students_add_do');
+
+		Route::get('admission/edit/{id}','StudentController@edit')->name('students_edit');
+		Route::post('admission/edit','StudentController@edit_do')->name('students_edit_do');
+
+		Route::post('delete','StudentController@delete')->name('students_delete');
+
+		Route::get('view','StudentController@view')->name('students_view');
+
+	});
 
 
 });
