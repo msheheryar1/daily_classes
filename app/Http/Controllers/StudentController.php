@@ -46,12 +46,17 @@ class StudentController extends Controller
     	$student->save();
 
     	return redirect()->back();
-    	
-    	
+    }
 
 
+    public function view(){
 
+    	$data = Student::join('classes','classes.id','students.class_id')
+    					->join('sections','sections.id','students.section_id')
+    					->select('students.*','classes.name as class_name','sections.name as section_name')
+    					->get();
 
+    	return view('panel.student.view',compact('data'));				
 
     }
 }

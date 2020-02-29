@@ -34,25 +34,29 @@
                 <thead>
                 <tr>
                   <th>#</th>
-                  <th>Class Name</th>
-                  <th>Section Name</th>
-                  <th>Created At</th>
+                  <th>Name</th>
+                  <th>Father Name</th>
+                  <th>Class</th>
+                  <th>Section</th>
                   <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 	@php $count=0; @endphp
-	                @forelse($data as $mysection)
+	                @forelse($data as $mystudent)
 	                @php $count++ @endphp
 	                	<tr>
 		                  <td>{{$count}}</td>
-                      <td>{{$mysection->class_name}}</td>
-		                  <td>{{$mysection->name}}
+                      <td>{{$mystudent->name}}</td>
+                      <td>{{$mystudent->father_name}}</td>
+		                  <td>{{$mystudent->class_name}}
 		                  </td>
-		                  <td>{{$mysection->created_at}}</td>
+                      <td>{{$mystudent->section_name}}
+                      </td>
 		                  <td>
-		                  	<a href="{{route('section_edit',$mysection->id)}}" class="btn btn-primary">Edit</a>
-		                  	<a href="{{route('section_delete',$mysection->id)}}" class="btn btn-danger">Delete</a>
+		                  	<a href="{{route('section_edit',$mystudent->id)}}" class="btn btn-primary">Edit</a>
+		                    <a href="{{route('section_delete',$mystudent->id)}}" class="btn btn-info">View Full</a>
+                      	<a href="{{route('section_delete',$mystudent->id)}}" class="btn btn-danger">Delete</a>
 		                  </td>
 		                </tr>
 
@@ -63,10 +67,12 @@
             	</tbody>
     			<tfoot>
                 <tr>
+                  
                   <th>#</th>
-                  <th>Class Name</th>
-                  <th>Section Name</th>
-                  <th>Created At</th>
+                  <th>Name</th>
+                  <th>Father Name</th>
+                  <th>Class</th>
+                  <th>Section</th>
                   <th>Action</th>
                 </tr>
                 </tfoot>
