@@ -8,7 +8,7 @@ use App\Section;
 class SectionController extends Controller
 {
     //
-    
+
     public function add(){
     	$classes = Classes::orderBy('name','asc')->get();
     	return view('panel.sections.add',compact('classes'));
@@ -52,5 +52,12 @@ class SectionController extends Controller
     	Section::find($id)->delete();
 
     	return redirect()->back();
+    }
+
+
+    public function get_sections(Request $request){
+    	$sections = Section::where('class_id',$request->class_id)->orderBy('name','asc')->get();
+
+    	return json_encode($sections);
     }
 }

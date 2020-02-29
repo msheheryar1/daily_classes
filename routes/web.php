@@ -47,6 +47,8 @@ Route::group(['prefix'=>'panel','middleware'=>'auth'],function(){
 		Route::get('/view','SectionController@view')->name('section_view');
 
 		Route::get('/delete/{id}','SectionController@delete')->name('section_delete');
+		Route::post('/get_sections','SectionController@get_sections')->name('get_sections');
+
 	});
 
 	Route::group(['prefix'=>'students'],function(){
@@ -60,6 +62,7 @@ Route::group(['prefix'=>'panel','middleware'=>'auth'],function(){
 		Route::post('delete','StudentController@delete')->name('students_delete');
 
 		Route::get('view','StudentController@view')->name('students_view');
+
 
 	});
 

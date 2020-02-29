@@ -6,6 +6,7 @@
   <title>AdminLTE 3 | Dashboard</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" content="{{csrf_token()}}" name="_token">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{asset('panel/plugins/fontawesome-free/css/all.min.css')}}">
   <!-- Ionicons -->
@@ -25,6 +26,12 @@
   <!-- summernote -->
   <link rel="stylesheet" href="{{asset('panel/plugins/summernote/summernote-bs4.css')}}">
   <!-- Google Font: Source Sans Pro -->
+  
+<!-- jQuery -->
+<script src="{{asset('panel/plugins/jquery/jquery.min.js')}}"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="{{asset('panel/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -311,11 +318,6 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery -->
-<script src="{{asset('panel/plugins/jquery/jquery.min.js')}}"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="{{asset('panel/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button)
 </script>
