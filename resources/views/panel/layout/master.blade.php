@@ -277,6 +277,34 @@
               
             </ul>
           </li>
+
+
+
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                Teachers
+                <i class="fas fa-angle-left right"></i>
+                <span class="badge badge-info right">6</span>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('teachers_add')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('teachers_view')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View</p>
+                </a>
+              </li>
+              
+            </ul>
+          </li>
           <li class="nav-item has-treeview">
             <a href="#" onclick="$('#logout_form').submit()" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>

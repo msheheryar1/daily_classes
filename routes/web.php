@@ -63,6 +63,24 @@ Route::group(['prefix'=>'panel','middleware'=>'auth'],function(){
 
 		Route::get('view','StudentController@view')->name('students_view');
 
+		Route::get('/view-full/{id}','StudentController@view_full')->name('students_view_full');
+
+	});
+
+
+	Route::group(['prefix'=>'teachers'],function(){
+
+		Route::get('admission','TeacherController@add')->name('teachers_add');
+		Route::post('admission','TeacherController@add_do')->name('teachers_add_do');
+
+		Route::get('admission/edit/{id}','TeacherController@edit')->name('teachers_edit');
+		Route::post('admission/edit','TeacherController@edit_do')->name('teachers_edit_do');
+
+		Route::post('delete','TeacherController@delete')->name('teachers_delete');
+
+		Route::get('view','TeacherController@view')->name('teachers_view');
+
+		Route::get('/view-full/{id}','TeacherController@view_full')->name('teachers_view_full');
 
 	});
 

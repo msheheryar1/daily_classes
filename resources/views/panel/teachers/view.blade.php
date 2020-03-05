@@ -12,8 +12,8 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Student</a></li>
-              <li class="breadcrumb-item active">Edit Student</li>
+              <li class="breadcrumb-item"><a href="#">Teacher</a></li>
+              <li class="breadcrumb-item active">Edit Teacher</li>
             </ol>
           </div>
         </div>
@@ -35,7 +35,9 @@
                 <tr>
                   <th>#</th>
                   <th>Name</th>
-                  <th>Father Name</th>
+                  <th>Basic Salary</th>
+                  <th>Phone</th>
+                  <th>Image</th>
                   <th>Class</th>
                   <th>Section</th>
                   <th>Action</th>
@@ -43,20 +45,22 @@
                 </thead>
                 <tbody>
                 	@php $count=0; @endphp
-	                @forelse($data as $mystudent)
+	                @forelse($data as $myteacher)
 	                @php $count++ @endphp
 	                	<tr>
 		                  <td>{{$count}}</td>
-                      <td>{{$mystudent->name}}</td>
-                      <td>{{$mystudent->father_name}}</td>
-		                  <td>{{$mystudent->class_name}}
+                      <td>{{$myteacher->name}}</td>
+                      <td>{{$myteacher->basic_salary}}</td>
+                      <td>{{$myteacher->phone}}</td>
+                      <td><img width="50px" src="{{asset('media/teacher_pictures')}}/{{$myteacher->image}}"> </td>
+		                  <td>{{$myteacher->class_name}}
 		                  </td>
-                      <td>{{$mystudent->section_name}}
+                      <td>{{$myteacher->section_name}}
                       </td>
 		                  <td>
-		                  	<a href="{{route('students_edit',$mystudent->id)}}" class="btn btn-primary">Edit</a>
-		                    <a href="{{route('students_view_full',$mystudent->id)}}" class="btn btn-info">View Full</a>
-                      	<a href="{{route('students_delete',$mystudent->id)}}" class="btn btn-danger">Delete</a>
+		                  	<a href="{{route('teachers_edit',$myteacher->id)}}" class="btn btn-primary">Edit</a>
+		                    <a href="{{route('teachers_view_full',$myteacher->id)}}" class="btn btn-info">View Full</a>
+                      	<a href="{{route('teachers_delete',$myteacher->id)}}" class="btn btn-danger">Delete</a>
 		                  </td>
 		                </tr>
 
@@ -67,10 +71,11 @@
             	</tbody>
     			<tfoot>
                 <tr>
-                  
                   <th>#</th>
                   <th>Name</th>
-                  <th>Father Name</th>
+                  <th>Basic Salary</th>
+                  <th>Phone</th>
+                  <th>Image</th>
                   <th>Class</th>
                   <th>Section</th>
                   <th>Action</th>
