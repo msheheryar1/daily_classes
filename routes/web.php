@@ -85,4 +85,23 @@ Route::group(['prefix'=>'panel','middleware'=>'auth'],function(){
 	});
 
 
+
+	Route::group(['prefix'=>'attendance'],function(){
+
+		Route::get('/take','AttendanceController@add')->name('attendances_add');
+		Route::post('/take','AttendanceController@add_do')->name('attendances_add_do');
+
+		Route::get('/edit/{id}','AttendanceController@edit')->name('attendances_edit');
+		Route::post('/edit','AttendanceController@edit_do')->name('attendances_edit_do');
+
+		Route::post('delete','AttendanceController@delete')->name('attendances_delete');
+
+		Route::get('view','AttendanceController@view')->name('attendances_view');
+
+		Route::post('get_students','AttendanceController@get_students')->name('get_students');
+		// Route::get('/view-full/{id}','TeacherController@view_full')->name('teachers_view_full');
+
+	});
+
+
 });
