@@ -22,6 +22,25 @@ class AttendanceController extends Controller
     	return $attendace;
     }
 
+
+    public function view(){
+    	$classes = Classes::all();
+    	$attendance='';
+    	if(isset($_GET['search'])){
+
+    		$class_id = $_GET['class_id'];
+    		$section_id = $_GET['section_id'];
+    		$from_date = $_GET['from_date'];
+    		$to_date = $_GET['to_date'];
+
+    		$attendance = Attendance::get_attendance($class_id,$section_id,$from_date,$to_date);
+
+
+    	}
+
+    	return view('panel.attendances.view',compact('classes','attendance'));
+    }
+
     public function get_students(Request $request){
     	$data = Student::get_students($request->class_id,$request->section_id);
 

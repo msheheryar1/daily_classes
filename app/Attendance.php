@@ -29,5 +29,19 @@ class Attendance extends Model
 
     }
 
+    static function get_attendance($class_id,$section_id,$from_date,$to_date){
+    	$a_ids = self::where('class_id',$class_id)
+    		->where('section_id',$section_id)
+    		->where('created_at','>',$from_date.' 00:00:00')
+    		->where('created_at','<=',$to_date.' 23:59:59')
+    		->pluck('id');
+
+    	return AttendanceRecord::get_records($a_ids);
+    		
+    		
+
+
+    }
+
 
 }
